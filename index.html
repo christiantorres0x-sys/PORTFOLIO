@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christian | Software Developer</title>
+  <meta name="description" content="Portfolio of Christian, a Computer Science student and full-stack developer from Zamboanga, Philippines. Web interfaces, Java applications and mobile apps." />
+  <meta name="theme-color" content="#080810" />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:title" content="Christian | Software Developer" />
+  <meta property="og:description" content="Clean, responsive web interfaces and interactive applications built with modern frontend technologies and Java." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080810'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-size='34' font-weight='800' text-anchor='middle' fill='%2300d4ff'%3EC%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#home" aria-current="true">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#opensource">GitHub</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero container" aria-label="Introduction">
+      <div class="hero-text">
+        <span class="badge">2nd Year Computer Science Student</span>
+        <h1>Hi, I'm Christian</h1>
+        <div class="type-wrap" id="type" aria-hidden="true"></div>
+        <p class="hero-lead">
+          I build clean, responsive web interfaces and interactive applications
+          using modern frontend technologies and Java.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="assets/cv.pdf" download class="btn btn-outline">Download CV</a>
+        </div>
+      </div>
+
+      <div class="hero-card" id="heroCard">
+        <div class="id-card" id="idCard">
+          <div class="id-sidebar"><span>Software Dev</span></div>
+          <div class="id-body">
+            <div class="id-punch"></div>
+            <div class="id-brand">⬡ Christian</div>
+            <div class="id-main">
+              <div class="id-photo">
+                <div class="avatar">
+                  <span class="avatar-fallback" aria-hidden="true">C</span>
+                  <img src="assets/images/avatar.png" alt="Portrait of Christian" data-avatar />
+                </div>
+              </div>
+              <div class="id-info">
+                <p class="id-name">Christian</p>
+                <p class="id-role">Full Stack Developer</p>
+                <span class="id-pill">ID-2026-0001</span>
+              </div>
+            </div>
+            <div class="id-barcode" aria-hidden="true"></div>
+            <p class="id-email">christian@dev.ph</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section container" aria-labelledby="about-title">
+      <div data-reveal>
+        <div class="status-chip">
+          <div>
+            <div class="who">@christian</div>
+            <div class="state">Online now</div>
+          </div>
+          <a href="#contact" class="chip-btn">Contact Me</a>
+        </div>
+
+        <div class="about-panel">
+          <div>
+            <h2 class="about-title" id="about-title">About Me</h2>
+            <p class="about-text">
+              I'm a full-stack developer passionate about building modern, high-performance applications with intuitive user experiences.
+              I enjoy working with AI, Machine Learning, and cloud-based development — blending creativity with precision to deliver
+              impactful solutions. Over three years and 20+ completed projects.
+            </p>
+
+            <div class="about-stats">
+              <div>
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Projects Finished</div>
+              </div>
+              <div>
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+            </div>
+
+            <p class="about-motto">Working with heart, creating with mind.</p>
+          </div>
+
+          <!-- Draggable lanyard badge (physics in js/main.js) -->
+          <div class="lanyard" id="lanyard" aria-hidden="true">
+            <div class="lanyard-swing" id="lanyardSwing">
+              <div class="lanyard-string" id="lanyardString"></div>
+              <div class="lanyard-card" id="lanyardCard">
+                <div class="lanyard-clip"></div>
+                <div class="badge-card">
+                  <div class="badge-photo">
+                    <div class="avatar">
+                      <span class="avatar-fallback">C</span>
+                      <img src="assets/images/avatar.png" alt="" data-avatar />
+                    </div>
+                  </div>
+                  <div class="badge-name">Christian</div>
+                  <div class="badge-role">Full Stack Dev</div>
+                  <div class="badge-role is-muted">CS Student '26</div>
+                  <div class="badge-id">DEV · 0001 · PH</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects" class="section container" aria-labelledby="projects-title">
+      <div class="section-head" data-reveal>
+        <h2 class="section-title" id="projects-title">Featured Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project project--wide" data-reveal>
+          <div class="project-media" style="--ratio: 1150 / 546">
+            <span class="project-index">01</span>
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/sari-sari-poster.jpg" />
+              <img src="assets/images/projects/sari-sari.gif" width="1150" height="546" loading="lazy" decoding="async" alt="Sari-Sari Store System demo: dashboard with sales summary and calendar" />
+            </picture>
+          </div>
+          <div class="project-body">
+            <h3>Sari-Sari Store System</h3>
+            <p>A comprehensive inventory and sales management system featuring stock tracking, sales reporting, and user-friendly interface.</p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Swing</span>
+            </div>
+            <!-- To enable: add href="your-demo-url" target="_blank" rel="noopener" and delete aria-disabled -->
+            <a class="btn btn-primary" aria-disabled="true" title="Demo link not added yet">Live Demo ↗</a>
+          </div>
+        </article>
+
+        <article class="project project--narrow" data-reveal>
+          <div class="project-media" style="--ratio: 750 / 858">
+            <span class="project-index">02</span>
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/brick-breaker-poster.jpg" />
+              <img class="fit-contain" src="assets/images/projects/brick-breaker.gif" width="750" height="858" loading="lazy" decoding="async" alt="Brick Breaker game demo: ball, paddle and rows of colored bricks" />
+            </picture>
+          </div>
+          <div class="project-body">
+            <h3>Brick Breaker</h3>
+            <p>Classic arcade-style game with physics, destructible bricks, scoring system, and sound effects.</p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Game Dev</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project project--full" data-reveal>
+          <div class="project-media">
+            <span class="project-index">03</span>
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/disaster-app-poster.jpg" />
+              <img src="assets/images/projects/disaster-app.gif" width="1152" height="648" loading="lazy" decoding="async" alt="Disaster Prep App demo: list of disaster types such as volcano, earthquake and typhoon" />
+            </picture>
+          </div>
+          <div class="project-body">
+            <h3>Disaster Prep App</h3>
+            <p>Mobile application for disaster preparedness including checklists, location alerts, and resource guides.</p>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Firebase</span>
+            </div>
+            <a class="btn btn-primary" aria-disabled="true" title="Demo link not added yet">Live Demo ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- OPEN SOURCE -->
+    <section id="opensource" class="section container" aria-labelledby="os-title">
+      <div class="section-head" data-reveal>
+        <h2 class="section-title" id="os-title">Open Source Projects</h2>
+        <p class="section-subtitle">My public repositories on GitHub</p>
+      </div>
+
+      <div class="os-tabs" role="tablist" aria-label="Repository categories">
+        <button class="os-tab" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" data-page="0">All Projects</button>
+        <button class="os-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" tabindex="-1" data-page="1">Web Dev</button>
+        <button class="os-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" data-page="2">Tools</button>
+      </div>
+
+      <div class="os-viewport">
+        <div class="os-page is-active" role="tabpanel" id="panel-0" aria-labelledby="tab-0" data-page="0">
+          <article class="repo" data-reveal>
+            <div>
+              <span class="repo-tag">Frontend</span>
+              <h3>Portfolio Website</h3>
+              <p>Responsive personal portfolio built with HTML, CSS, and vanilla JavaScript. Features 3D card physics and scroll animations.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#f7df1e"></i>JavaScript</span>
+              <span>★ 12</span>
+              <span>🍴 3</span>
+            </div>
+          </article>
+
+          <article class="repo" data-reveal>
+            <div>
+              <span class="repo-tag">Full Stack</span>
+              <h3>Student System</h3>
+              <p>CRUD web application for managing student records with search, filters, and CSV export functionality.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#f7df1e"></i>JS</span>
+              <span>★ 5</span>
+              <span>🍴 1</span>
+            </div>
+          </article>
+
+          <article class="repo" data-reveal>
+            <div>
+              <span class="repo-tag">UI/UX</span>
+              <h3>Landing Page Kit</h3>
+              <p>A collection of responsive landing page templates with modern glassmorphism design and smooth transitions.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#e34c26"></i>HTML</span>
+              <span>★ 8</span>
+            </div>
+          </article>
+
+          <article class="repo" data-reveal>
+            <div>
+              <span class="repo-tag">Experiments</span>
+              <h3>Mini Projects</h3>
+              <p>Playground for CSS art, micro-animations, and experimental UI components. Always growing.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#563d7c"></i>CSS</span>
+              <span>★ 4</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="os-page" role="tabpanel" id="panel-1" aria-labelledby="tab-1" data-page="1">
+          <article class="repo">
+            <div>
+              <span class="repo-tag">React</span>
+              <h3>Component Library</h3>
+              <p>Reusable React components with TypeScript support, Storybook docs, and automated testing via Jest.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#61dafb"></i>TypeScript</span>
+              <span>★ 9</span>
+            </div>
+          </article>
+
+          <article class="repo">
+            <div>
+              <span class="repo-tag">Backend</span>
+              <h3>REST API Boilerplate</h3>
+              <p>Express.js starter with JWT auth, rate limiting, and auto-generated Swagger docs.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#68a063"></i>Node.js</span>
+              <span>★ 7</span>
+            </div>
+          </article>
+
+          <article class="repo">
+            <div>
+              <span class="repo-tag">Database</span>
+              <h3>Query Builder</h3>
+              <p>Lightweight SQL query builder for MySQL with a fluent chainable API and query caching.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#336791"></i>PHP</span>
+              <span>★ 3</span>
+            </div>
+          </article>
+
+          <article class="repo">
+            <div>
+              <span class="repo-tag">DevOps</span>
+              <h3>Deploy Scripts</h3>
+              <p>Bash automation scripts for deploying LAMP stack applications with zero-downtime rollbacks.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#4eaa25"></i>Bash</span>
+              <span>★ 6</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="os-page" role="tabpanel" id="panel-2" aria-labelledby="tab-2" data-page="2">
+          <article class="repo">
+            <div>
+              <span class="repo-tag">CLI</span>
+              <h3>File Organizer</h3>
+              <p>Command-line tool that automatically sorts and renames files by type, date, and custom rules.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#3572a5"></i>Python</span>
+              <span>★ 11</span>
+            </div>
+          </article>
+
+          <article class="repo">
+            <div>
+              <span class="repo-tag">Utility</span>
+              <h3>PDF Merger</h3>
+              <p>Simple GUI tool to merge, split, and reorder PDF pages. Built with Java Swing and PDFBox.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#b07219"></i>Java</span>
+              <span>★ 4</span>
+            </div>
+          </article>
+
+          <article class="repo">
+            <div>
+              <span class="repo-tag">Browser Ext</span>
+              <h3>Focus Mode</h3>
+              <p>Chrome extension that blocks distracting sites during study sessions with Pomodoro timer integration.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#f7df1e"></i>JavaScript</span>
+              <span>★ 15</span>
+            </div>
+          </article>
+
+          <article class="repo">
+            <div>
+              <span class="repo-tag">Data</span>
+              <h3>Grade Calculator</h3>
+              <p>Web app for computing weighted final grades with what-if scenario planning for students.</p>
+            </div>
+            <div class="repo-meta">
+              <span><i class="lang-dot" style="--dot:#f7df1e"></i>JavaScript</span>
+              <span>★ 2</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="os-dots" id="osDots">
+        <button class="os-dot" aria-label="Show All Projects" aria-current="true" data-page="0"></button>
+        <button class="os-dot" aria-label="Show Web Dev" data-page="1"></button>
+        <button class="os-dot" aria-label="Show Tools" data-page="2"></button>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section container contact" aria-labelledby="contact-title">
+      <div data-reveal>
+        <h2 class="section-title" id="contact-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's connect! Feel free to reach out for opportunities or collaborations.</p>
+        <div class="contact-actions">
+          <a href="mailto:christian@dev.ph" class="btn btn-primary">Email Me</a>
+          <a href="https://linkedin.com/in/christian" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2026 Christian — Software Developer · Built with 💙 in Zamboanga, PH</footer>
+
+  <!-- CHAT WIDGET -->
+  <button class="chat-toggle" id="chatToggle" type="button" aria-label="Chat with Christian's AI twin" aria-expanded="false" aria-controls="chatWidget">
+    <span class="icon-open" aria-hidden="true">💬</span>
+    <span class="icon-close" aria-hidden="true">✕</span>
+  </button>
+
+  <div class="chat-widget" id="chatWidget" role="dialog" aria-label="Chat with Christian's AI twin">
+    <div class="chat-glass">
+      <div class="chat-header">
+        <div class="chat-avatar" aria-hidden="true">👨‍💻</div>
+        <div>
+          <div class="chat-name">Christian's AI Twin</div>
+          <div class="chat-status">Online — Ask me anything</div>
+        </div>
+      </div>
+
+      <div class="chat-setup" id="apiKeySetup">
+        <p>To chat with my AI twin, enter your <strong>Google Gemini API key</strong>. It's stored only in your browser session.</p>
+        <label class="sr-only" for="apiKeyInput">Google Gemini API key</label>
+        <input type="password" class="chat-field" id="apiKeyInput" placeholder="AIza...your-gemini-key" autocomplete="off" spellcheck="false" />
+        <button class="btn btn-primary" id="saveApiKey" type="button">Start Chatting</button>
+        <p class="fine-print">Get a free key at <a href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer">aistudio.google.com</a></p>
+      </div>
+
+      <div class="chat-body" id="chatBody" role="log" aria-live="polite" hidden></div>
+
+      <div class="chat-footer" id="chatFooter" hidden>
+        <label class="sr-only" for="chatInput">Message</label>
+        <textarea class="chat-field" id="chatInput" placeholder="Ask me about my projects, skills..." rows="1"></textarea>
+        <button class="chat-send" id="chatSend" type="button" aria-label="Send message">➤</button>
+      </div>
+      <div class="chat-hint" id="chatHint" hidden>Powered by Google Gemini · AI responses may vary</div>
+    </div>
+  </div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/chat.js" defer></script>
+</body>
+</html>
