@@ -67,7 +67,7 @@ IMPORTANT RULES:
     setup.hidden = ready;
     body.hidden = footer.hidden = hint.hidden = !ready;
     if (ready && !body.children.length) {
-      addMessage('bot', "Hey! 👋 I'm Christian's AI twin. Ask me about my projects, skills, or what it's like studying CS in Zamboanga!");
+      addMessage('bot', "Hey! I'm Christian's AI twin. Ask me about my projects, skills, or what it's like studying CS in Zamboanga!");
     }
   }
 

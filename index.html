@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christian | Software Developer</title>
   <meta name="description" content="Portfolio of Christian, a Computer Science student and full-stack developer from Zamboanga, Philippines. Web interfaces, Java applications and mobile apps." />
-  <meta name="theme-color" content="#080810" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="color-scheme" content="dark light" />
   <meta property="og:title" content="Christian | Software Developer" />
   <meta property="og:description" content="Clean, responsive web interfaces and interactive applications built with modern frontend technologies and Java." />
   <meta property="og:type" content="website" />
@@ -16,20 +16,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    /* Runs before first paint: theme (saved choice, default dark), loader and ready flags. */
+    (function () {
+      var d = document.documentElement, theme = 'dark', seen = false;
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') theme = t; } catch (e) {}
+      d.dataset.theme = theme;
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.content = theme === 'light' ? '#fafafa' : '#050505';
+      d.classList.add('js');
+      try { seen = sessionStorage.getItem('intro-seen') === '1'; } catch (e) {}
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      d.classList.add(!reduce && !seen ? 'has-loader' : 'is-ready');
+      setTimeout(function () { d.classList.add('is-ready'); }, 8000);   // failsafe
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="#home" aria-current="true">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#opensource">GitHub</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-top"><span class="loader-mark">C</span><span>Christian — Portfolio</span></div>
+    <div class="loader-count" id="loaderCount">000</div>
+    <div class="loader-foot"><span>Loading</span><span class="loader-line"><i id="loaderBar"></i></span></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <a class="monogram" href="#home" aria-label="Christian — back to top">C</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home" data-nav-link aria-current="true">Home</a>
+        <a href="#about" data-nav-link>About</a>
+        <a href="#projects" data-nav-link>Projects</a>
+        <a href="#opensource" data-nav-link>GitHub</a>
+        <a href="#contact" data-nav-link>Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+      </div>
+    </div>
   </header>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#home" data-nav-link aria-current="true">Home</a>
+    <a href="#about" data-nav-link>About</a>
+    <a href="#projects" data-nav-link>Projects</a>
+    <a href="#opensource" data-nav-link>GitHub</a>
+    <a href="#contact" data-nav-link>Contact</a>
+  </nav>
 
   <main id="main">
     <!-- HERO -->
@@ -49,7 +87,7 @@
       </div>
 
       <div class="hero-card" id="heroCard">
-        <div class="id-card" id="idCard">
+        <div class="id-card keep-dark" id="idCard">
           <div class="id-sidebar"><span>Software Dev</span></div>
           <div class="id-body">
             <div class="id-punch"></div>
@@ -114,7 +152,7 @@
               <div class="lanyard-string" id="lanyardString"></div>
               <div class="lanyard-card" id="lanyardCard">
                 <div class="lanyard-clip"></div>
-                <div class="badge-card">
+                <div class="badge-card keep-dark">
                   <div class="badge-photo">
                     <div class="avatar">
                       <span class="avatar-fallback">C</span>
@@ -139,64 +177,84 @@
         <h2 class="section-title" id="projects-title">Featured Projects</h2>
       </div>
 
-      <div class="projects-grid">
-        <article class="project project--wide" data-reveal>
-          <div class="project-media" style="--ratio: 1150 / 546">
-            <span class="project-index">01</span>
-            <picture>
-              <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/sari-sari-poster.jpg" />
-              <img src="assets/images/projects/sari-sari.gif" width="1150" height="546" loading="lazy" decoding="async" alt="Sari-Sari Store System demo: dashboard with sales summary and calendar" />
-            </picture>
+      <div data-reveal>
+        <div class="showcase-bar">
+          <div class="counter" aria-hidden="true"><span id="carCurrent">01</span> <span class="total">/ 03</span></div>
+          <div class="carousel-controls">
+            <button class="icon-btn arrow" id="carPrev" type="button" aria-label="Previous project" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            </button>
+            <button class="icon-btn arrow" id="carNext" type="button" aria-label="Next project">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
           </div>
-          <div class="project-body">
-            <h3>Sari-Sari Store System</h3>
-            <p>A comprehensive inventory and sales management system featuring stock tracking, sales reporting, and user-friendly interface.</p>
-            <div class="tags">
-              <span class="tag">Java</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Swing</span>
-            </div>
-            <!-- To enable: add href="your-demo-url" target="_blank" rel="noopener" and delete aria-disabled -->
-            <a class="btn btn-primary" aria-disabled="true" title="Demo link not added yet">Live Demo ↗</a>
-          </div>
-        </article>
+        </div>
 
-        <article class="project project--narrow" data-reveal>
-          <div class="project-media" style="--ratio: 750 / 858">
-            <span class="project-index">02</span>
-            <picture>
-              <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/brick-breaker-poster.jpg" />
-              <img class="fit-contain" src="assets/images/projects/brick-breaker.gif" width="750" height="858" loading="lazy" decoding="async" alt="Brick Breaker game demo: ball, paddle and rows of colored bricks" />
-            </picture>
-          </div>
-          <div class="project-body">
-            <h3>Brick Breaker</h3>
-            <p>Classic arcade-style game with physics, destructible bricks, scoring system, and sound effects.</p>
-            <div class="tags">
-              <span class="tag">Java</span>
-              <span class="tag">Game Dev</span>
-            </div>
-          </div>
-        </article>
+        <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Featured projects" tabindex="0">
+          <div class="carousel-track" id="carTrack">
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="slide-media keep-dark">
+                <picture>
+                  <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/sari-sari-poster.jpg" />
+                  <img class="fit-contain" src="assets/images/projects/sari-sari.gif" width="1150" height="546" loading="lazy" decoding="async" draggable="false" alt="Sari-Sari Store System demo: dashboard with sales summary and calendar" />
+                </picture>
+              </div>
+              <div class="slide-body">
+                <h3>Sari-Sari Store System</h3>
+                <p>A comprehensive inventory and sales management system featuring stock tracking, sales reporting, and user-friendly interface.</p>
+                <div class="tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">MySQL</span>
+                  <span class="tag">Swing</span>
+                </div>
+                <!-- To enable: add href="your-demo-url" target="_blank" rel="noopener" and delete aria-disabled -->
+                <a class="btn btn-primary" aria-disabled="true" title="Demo link not added yet">Live Demo ↗</a>
+              </div>
+            </article>
 
-        <article class="project project--full" data-reveal>
-          <div class="project-media">
-            <span class="project-index">03</span>
-            <picture>
-              <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/disaster-app-poster.jpg" />
-              <img src="assets/images/projects/disaster-app.gif" width="1152" height="648" loading="lazy" decoding="async" alt="Disaster Prep App demo: list of disaster types such as volcano, earthquake and typhoon" />
-            </picture>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="slide-media keep-dark">
+                <picture>
+                  <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/brick-breaker-poster.jpg" />
+                  <img class="fit-contain" src="assets/images/projects/brick-breaker.gif" width="750" height="858" loading="lazy" decoding="async" draggable="false" alt="Brick Breaker game demo: ball, paddle and rows of colored bricks" />
+                </picture>
+              </div>
+              <div class="slide-body">
+                <h3>Brick Breaker</h3>
+                <p>Classic arcade-style game with physics, destructible bricks, scoring system, and sound effects.</p>
+                <div class="tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">Game Dev</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="slide-media keep-dark">
+                <picture>
+                  <source media="(prefers-reduced-motion: reduce)" srcset="assets/images/projects/disaster-app-poster.jpg" />
+                  <img src="assets/images/projects/disaster-app.gif" width="1152" height="648" loading="lazy" decoding="async" draggable="false" alt="Disaster Prep App demo: list of disaster types such as volcano, earthquake and typhoon" />
+                </picture>
+              </div>
+              <div class="slide-body">
+                <h3>Disaster Prep App</h3>
+                <p>Mobile application for disaster preparedness including checklists, location alerts, and resource guides.</p>
+                <div class="tags">
+                  <span class="tag">React Native</span>
+                  <span class="tag">Firebase</span>
+                </div>
+                <a class="btn btn-primary" aria-disabled="true" title="Demo link not added yet">Live Demo ↗</a>
+              </div>
+            </article>
           </div>
-          <div class="project-body">
-            <h3>Disaster Prep App</h3>
-            <p>Mobile application for disaster preparedness including checklists, location alerts, and resource guides.</p>
-            <div class="tags">
-              <span class="tag">React Native</span>
-              <span class="tag">Firebase</span>
-            </div>
-            <a class="btn btn-primary" aria-disabled="true" title="Demo link not added yet">Live Demo ↗</a>
-          </div>
-        </article>
+        </div>
+        <p class="sr-only" id="carLive" aria-live="polite"></p>
+
+        <ol class="project-list" id="carList">
+          <li><button type="button" data-slide="0" aria-current="true"><span class="num">01</span><span class="name">Sari-Sari Store System</span><span class="stack">Java · MySQL · Swing</span></button></li>
+          <li><button type="button" data-slide="1"><span class="num">02</span><span class="name">Brick Breaker</span><span class="stack">Java · Game Dev</span></button></li>
+          <li><button type="button" data-slide="2"><span class="num">03</span><span class="name">Disaster Prep App</span><span class="stack">React Native · Firebase</span></button></li>
+        </ol>
       </div>
     </section>
 
@@ -224,7 +282,7 @@
             <div class="repo-meta">
               <span><i class="lang-dot" style="--dot:#f7df1e"></i>JavaScript</span>
               <span>★ 12</span>
-              <span>🍴 3</span>
+              <span><svg class="fork" viewBox="0 0 24 24" role="img" aria-label="forks"><circle cx="6" cy="5" r="2.2"/><circle cx="18" cy="5" r="2.2"/><circle cx="12" cy="19" r="2.2"/><path d="M6 7.2v2.3A2.5 2.5 0 0 0 8.5 12h7a2.5 2.5 0 0 0 2.5-2.5V7.2M12 12v4.8"/></svg>3</span>
             </div>
           </article>
 
@@ -237,7 +295,7 @@
             <div class="repo-meta">
               <span><i class="lang-dot" style="--dot:#f7df1e"></i>JS</span>
               <span>★ 5</span>
-              <span>🍴 1</span>
+              <span><svg class="fork" viewBox="0 0 24 24" role="img" aria-label="forks"><circle cx="6" cy="5" r="2.2"/><circle cx="18" cy="5" r="2.2"/><circle cx="12" cy="19" r="2.2"/><path d="M6 7.2v2.3A2.5 2.5 0 0 0 8.5 12h7a2.5 2.5 0 0 0 2.5-2.5V7.2M12 12v4.8"/></svg>1</span>
             </div>
           </article>
 
@@ -387,18 +445,18 @@
     </section>
   </main>
 
-  <footer class="site-footer">© 2026 Christian — Software Developer · Built with 💙 in Zamboanga, PH</footer>
+  <footer class="site-footer">© 2026 Christian — Software Developer · Built with ♥&#xFE0E; in Zamboanga, PH</footer>
 
   <!-- CHAT WIDGET -->
   <button class="chat-toggle" id="chatToggle" type="button" aria-label="Chat with Christian's AI twin" aria-expanded="false" aria-controls="chatWidget">
-    <span class="icon-open" aria-hidden="true">💬</span>
+    <svg class="chat-icon icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
     <span class="icon-close" aria-hidden="true">✕</span>
   </button>
 
-  <div class="chat-widget" id="chatWidget" role="dialog" aria-label="Chat with Christian's AI twin">
-    <div class="chat-glass">
+  <div class="chat-widget" id="chatWidget" role="dialog" aria-label="Chat with Christian's AI twin" data-lenis-prevent>
+    <div class="chat-glass keep-dark">
       <div class="chat-header">
-        <div class="chat-avatar" aria-hidden="true">👨‍💻</div>
+        <div class="chat-avatar" aria-hidden="true">C</div>
         <div>
           <div class="chat-name">Christian's AI Twin</div>
           <div class="chat-status">Online — Ask me anything</div>
@@ -424,6 +482,7 @@
     </div>
   </div>
 
+  <script src="js/vendor/lenis.min.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/chat.js" defer></script>
 </body>
