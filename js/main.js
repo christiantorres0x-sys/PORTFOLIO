@@ -153,7 +153,7 @@
   (function typewriter() {
     const el = $('#type');
     if (!el) return;
-    const roles = ['Full Stack Developer', 'Computer Science Student', 'UI/UX Enthusiast', 'Open Source Contributor'];
+    const roles = ['Computer Science Student', 'Hackathon Participant', 'Aspiring Developer', 'Personal Project Builder'];
     if (reduced.matches) { el.textContent = roles[0]; return; }
 
     let role = 0, chars = 0, deleting = false;

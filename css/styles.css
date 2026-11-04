@@ -759,6 +759,12 @@ h1 {
 .chat-send { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: var(--r-sm); background: var(--gradient); color: var(--btn-fg); cursor: pointer; transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); }
 .chat-send:hover { transform: scale(1.05); box-shadow: 0 4px 16px rgba(var(--ink), 0.35); }
 .chat-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.chat-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 16px 12px; }
+.chat-chips button { font: inherit; font-size: 0.76rem; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.04); color: inherit; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+.chat-chips button:hover, .chat-chips button:focus-visible { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.3); }
+.chat-link { font: inherit; background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.chat-msg a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.chat-setup .btn-outline { width: 100%; }
 .chat-hint { padding: 0 16px 12px; text-align: center; font-size: 0.7rem; color: var(--muted); opacity: 0.7; }
 
 [hidden] { display: none !important; }

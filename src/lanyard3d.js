@@ -71,8 +71,8 @@ function drawFront(avatar) {
   // text
   ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
   ctx.fillStyle = '#ffffff'; ctx.font = '700 70px Syne, system-ui, sans-serif'; track(ctx, 3); ctx.fillText('Christian', 350, 608);
-  ctx.fillStyle = '#ffffff'; ctx.font = '500 29px "DM Sans", system-ui, sans-serif'; track(ctx, 5); ctx.fillText('FULL STACK DEV', 350, 672);
-  ctx.fillStyle = '#9a9a9a'; track(ctx, 4); ctx.fillText("CS STUDENT '26", 350, 722);
+  ctx.fillStyle = '#ffffff'; ctx.font = '500 29px "DM Sans", system-ui, sans-serif'; track(ctx, 5); ctx.fillText('CS STUDENT', 350, 672);
+  ctx.fillStyle = '#9a9a9a'; track(ctx, 4); ctx.fillText('ZAMBOANGA, PH', 350, 722);
   // id box
   ctx.strokeStyle = 'rgba(255,255,255,0.22)'; ctx.lineWidth = 2; roundRect(ctx, 175, 770, 350, 62, 12); ctx.stroke();
   ctx.fillStyle = 'rgba(255,255,255,0.05)'; ctx.fill();
@@ -108,7 +108,7 @@ function drawStrap(theme) {
   ctx.save(); ctx.translate(64, 512); ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = fg; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.font = '800 50px Syne, system-ui, sans-serif'; track(ctx, 7);
-  ctx.fillText('CHRISTIAN  ·  SOFTWARE DEV  ·', 0, 2);
+  ctx.fillText('CHRISTIAN  ·  CS STUDENT  ·', 0, 2);
   ctx.restore();
   return c;
 }

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christian | Software Developer</title>
-  <meta name="description" content="Portfolio of Christian, a Computer Science student and full-stack developer from Zamboanga, Philippines. Web interfaces, Java applications and mobile apps." />
+  <title>Christian | CS Student &amp; Aspiring Developer</title>
+  <meta name="description" content="Portfolio of Christian, a Computer Science student from Zamboanga, Philippines. Personal projects, hackathons and competitions such as Hack4Gov." />
   <meta name="theme-color" content="#050505" />
   <meta name="color-scheme" content="dark light" />
-  <meta property="og:title" content="Christian | Software Developer" />
+  <meta property="og:title" content="Christian | CS Student &amp; Aspiring Developer" />
   <meta property="og:description" content="Clean, responsive web interfaces and interactive applications built with modern frontend technologies and Java." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080810'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-size='34' font-weight='800' text-anchor='middle' fill='%2300d4ff'%3EC%3C/text%3E%3C/svg%3E" />
@@ -74,7 +74,7 @@
     <!-- HERO -->
     <section id="home" class="hero container" aria-label="Introduction">
       <div class="hero-text">
-        <span class="badge">2nd Year Computer Science Student</span>
+        <span class="badge">Computer Science Student</span>
         <h1>Hi, I'm Christian</h1>
         <div class="type-wrap" id="type" aria-hidden="true"></div>
         <p class="hero-lead">
@@ -89,7 +89,7 @@
 
       <div class="hero-card" id="heroCard">
         <div class="id-card keep-dark" id="idCard">
-          <div class="id-sidebar"><span>Software Dev</span></div>
+          <div class="id-sidebar"><span>CS Student</span></div>
           <div class="id-body">
             <div class="id-punch"></div>
             <div class="id-brand">⬡ Christian</div>
@@ -102,7 +102,7 @@
               </div>
               <div class="id-info">
                 <p class="id-name">Christian</p>
-                <p class="id-role">Full Stack Developer</p>
+                <p class="id-role">Computer Science Student</p>
                 <span class="id-pill">ID-2026-0001</span>
               </div>
             </div>
@@ -128,19 +128,19 @@
           <div>
             <h2 class="about-title" id="about-title">About Me</h2>
             <p class="about-text">
-              I'm a full-stack developer passionate about building modern, high-performance applications with intuitive user experiences.
-              I enjoy working with AI, Machine Learning, and cloud-based development — blending creativity with precision to deliver
-              impactful solutions. Over three years and 20+ completed projects.
+              I'm a Computer Science student in Zamboanga City who learns by building. I work on personal projects, join hackathons and
+              small competitions such as Hack4Gov, and I'm still growing my skills in web, Java and mobile development —
+              always looking for the next thing to build and learn from.
             </p>
 
             <div class="about-stats">
               <div>
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Projects Finished</div>
+                <div class="stat-number">BSCS</div>
+                <div class="stat-label">Ateneo de Zamboanga</div>
               </div>
               <div>
-                <div class="stat-number">3+</div>
-                <div class="stat-label">Years Experience</div>
+                <div class="stat-number">Hack4Gov</div>
+                <div class="stat-label">&amp; other competitions</div>
               </div>
             </div>
 
@@ -164,8 +164,8 @@
                     </div>
                   </div>
                   <div class="badge-name">Christian</div>
-                  <div class="badge-role">Full Stack Dev</div>
-                  <div class="badge-role is-muted">CS Student '26</div>
+                  <div class="badge-role">CS Student</div>
+                  <div class="badge-role is-muted">Zamboanga, PH</div>
                   <div class="badge-id">DEV · 0001 · PH</div>
                 </div>
               </div>
@@ -449,7 +449,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">© 2026 Christian — Software Developer · Built with ♥&#xFE0E; in Zamboanga, PH</footer>
+  <footer class="site-footer">© 2026 Christian — CS Student · Built with ♥&#xFE0E; in Zamboanga, PH</footer>
 
   <!-- CHAT WIDGET -->
   <button class="chat-toggle" id="chatToggle" type="button" aria-label="Chat with Christian's AI twin" aria-expanded="false" aria-controls="chatWidget">
@@ -462,27 +462,29 @@
       <div class="chat-header">
         <div class="chat-avatar" aria-hidden="true">C</div>
         <div>
-          <div class="chat-name">Christian's AI Twin</div>
-          <div class="chat-status">Online — Ask me anything</div>
+          <div class="chat-name">Ask about Christian</div>
+          <div class="chat-status">Instant answers · no sign-in needed</div>
         </div>
       </div>
 
-      <div class="chat-setup" id="apiKeySetup">
-        <p>To chat with my AI twin, enter your <strong>Google Gemini API key</strong>. It's stored only in your browser session.</p>
+      <div class="chat-setup" id="apiKeySetup" hidden>
+        <p>Optional: add a <strong>Google Gemini API key</strong> for free-form AI answers. It stays in this browser tab only.</p>
         <label class="sr-only" for="apiKeyInput">Google Gemini API key</label>
         <input type="password" class="chat-field" id="apiKeyInput" placeholder="AIza...your-gemini-key" autocomplete="off" spellcheck="false" />
-        <button class="btn btn-primary" id="saveApiKey" type="button">Start Chatting</button>
+        <button class="btn btn-primary" id="saveApiKey" type="button">Enable AI mode</button>
+        <button class="btn btn-outline" id="cancelApiKey" type="button">Back to quick answers</button>
         <p class="fine-print">Get a free key at <a href="https://aistudio.google.com" target="_blank" rel="noopener noreferrer">aistudio.google.com</a></p>
       </div>
 
-      <div class="chat-body" id="chatBody" role="log" aria-live="polite" hidden></div>
+      <div class="chat-body" id="chatBody" role="log" aria-live="polite"></div>
+      <div class="chat-chips" id="chatChips" aria-label="Suggested questions"></div>
 
-      <div class="chat-footer" id="chatFooter" hidden>
+      <div class="chat-footer" id="chatFooter">
         <label class="sr-only" for="chatInput">Message</label>
-        <textarea class="chat-field" id="chatInput" placeholder="Ask me about my projects, skills..." rows="1"></textarea>
+        <textarea class="chat-field" id="chatInput" placeholder="Ask about my projects, skills..." rows="1" maxlength="500"></textarea>
         <button class="chat-send" id="chatSend" type="button" aria-label="Send message">➤</button>
       </div>
-      <div class="chat-hint" id="chatHint" hidden>Powered by Google Gemini · AI responses may vary</div>
+      <div class="chat-hint" id="chatHint"><span id="chatMode">Quick answers about Christian</span> · <button type="button" class="chat-link" id="chatModeBtn">Use Gemini AI (optional)</button></div>
     </div>
   </div>
 
