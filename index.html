@@ -34,6 +34,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <canvas class="bg-waves" id="bgWaves" aria-hidden="true"></canvas>
 
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader-top"><span class="loader-mark">C</span><span>Christian — Portfolio</span></div>
@@ -146,7 +147,10 @@
             <p class="about-motto">Working with heart, creating with mind.</p>
           </div>
 
-          <!-- Draggable lanyard badge (physics in js/main.js) -->
+          <!-- 3D lanyard (js/vendor/lanyard3d.min.js, loaded when About is near). The 2D lanyard below is the fallback. -->
+          <div class="lanyard-3d" id="lanyard3d" hidden></div>
+
+          <!-- 2D lanyard fallback (physics in js/main.js) -->
           <div class="lanyard" id="lanyard" aria-hidden="true">
             <div class="lanyard-swing" id="lanyardSwing">
               <div class="lanyard-string" id="lanyardString"></div>
@@ -483,6 +487,7 @@
   </div>
 
   <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/background.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/chat.js" defer></script>
 </body>

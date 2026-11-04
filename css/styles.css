@@ -763,6 +763,28 @@ h1 {
 
 [hidden] { display: none !important; }
 
+/* ── Wave-lines background ──────────────────────────────────────────────── */
+.bg-waves {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* ── 3D lanyard host (shown when WebGL is available) ────────────────────── */
+.about-panel.has-3d { grid-template-columns: minmax(0, 1fr) minmax(280px, 380px); gap: 24px; align-items: center; min-height: 520px; }
+.lanyard-3d {
+  position: relative;
+  align-self: stretch;
+  margin: -56px -24px -56px 0;      /* span the panel's full height, flush with its top edge */
+  min-height: 440px;
+}
+.lanyard-3d canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; }
+
 /* ── Loader (first visit per session) ───────────────────────────────────── */
 .loader { display: none; }
 
@@ -833,6 +855,8 @@ h1 {
   .hero-card { max-width: 440px; }
 
   .about-panel { grid-template-columns: minmax(0, 1fr); padding: 36px 28px 44px; gap: 36px; }
+  .about-panel.has-3d { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 8px; }
+  .lanyard-3d { margin: 0 -28px -44px; height: 500px; min-height: 0; }
   .lanyard { margin: 0 auto; }
   .about-stats { gap: 36px; }
 
@@ -853,6 +877,7 @@ h1 {
 @media (max-width: 560px) {
   .container { width: calc(100% - 32px); }
   .about-panel { padding: 28px 20px 40px; }
+  .lanyard-3d { margin: 0 -20px -40px; height: 460px; }
   .about-stats { flex-direction: column; gap: 22px; }
   .stat-number { font-size: 2.6rem; }
   .status-chip { margin-inline: auto 0; }

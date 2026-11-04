@@ -288,6 +288,50 @@
     }
   })();
 
+  /* ── 3D lanyard ───────────────────────────────────────────────────────────
+     Loads three.js (js/vendor/lanyard3d.min.js, ~0.6 MB) only when the About
+     section is near. If WebGL or the script is unavailable, the 2D lanyard
+     above stays in place. */
+  (function lanyard3d() {
+    const host = $('#lanyard3d'), fallback = $('#lanyard'), panel = $('.about-panel'), about = $('#about');
+    if (!host || !fallback || !panel || !about) return;
+
+    const hasWebGL = (() => {
+      try { const c = document.createElement('canvas'); return Boolean(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; }
+    })();
+    if (!hasWebGL || !('IntersectionObserver' in window)) return;
+
+    let api = null, kicked = false;
+
+    function load() {
+      const script = document.createElement('script');
+      script.src = 'js/vendor/lanyard3d.min.js';
+      script.onload = () => {
+        try {
+          panel.classList.add('has-3d'); host.hidden = false; fallback.hidden = true;
+          api = window.Lanyard3D.init(host, { reducedMotion: reduced.matches, avatar: 'assets/images/avatar.png' });
+          host._lanyard = api;                       // handle for debugging and tests
+          maybeKick();
+        } catch (err) {
+          console.warn('3D lanyard unavailable, keeping the 2D version.', err);
+          panel.classList.remove('has-3d'); host.hidden = true; fallback.hidden = false;
+          api = null;
+        }
+      };
+      document.head.appendChild(script);
+    }
+
+    const maybeKick = () => { if (api && !kicked && visible) { kicked = true; api.kick(26); } };
+
+    let visible = false;
+    const near = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { near.disconnect(); load(); }
+    }, { rootMargin: '700px 0px' });
+    near.observe(about);
+
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; maybeKick(); }, { threshold: 0.4 }).observe(about);
+  })();
+
   /* ── Project carousel ─────────────────────────────────────────────────────
      Arrows, index list, keyboard (← →) and drag/swipe. Does not wrap. */
   (function carousel() {
